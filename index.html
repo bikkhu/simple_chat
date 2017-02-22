@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="chat.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script src="./chat.js"></script>	
+	</head>
+
+	<body>
+		<div ng-app="chat" ng-controller="chat_manager">
+			<p>{{header()}}</p>
+			<div id="chat_container" style="float:left">
+				<div id="enter">
+					<form id="enter" ng-submit="submit_text()">
+						<span id="enter">{{prompt()}}</span>
+						<input id="enter" method="post" autocomplete="off" ng-model="entry"></input>
+						<button type="button" ng-show="logged" ng-click="check_out()">x</button>
+					</form>
+				</div>
+				<div id="chat_window" ng-show="logged" style="border:solid 1px #000000; padding:4px; width:480px; height:200px; overflow:auto">
+				<!--	<div ng-repeat="interventions in chat">{{interventions}}</div> 		-->
+				</div>
+			</div>
+			<div id="book" ng-show="logged" style="border:solid 1px #000000; padding:4px; width:200px; height:245px; overflow:auto">
+				<div ng-repeat="users in book_names">{{users}}</div>
+			</div>
+		</div>
+	</body>
+</html>
